@@ -4,28 +4,6 @@ def main
     end
 end
 
-def game_ended
-    janken_result = JankenResult()
-
-    if janken_result == 2
-        puts "あいこで…"
-        return false
-    end
-
-    if !IsAttiDecided()
-        puts "じゃんけん…"
-        return false
-    end
-
-    if janken_result == 1
-        puts "あなたの勝ち!"
-    else
-        puts "残念…CPUの勝ち!"
-    end
-
-    return true
-end
-    
 #じゃんけん 
 def JankenResult
     print "じゃんけん…\n"
@@ -51,6 +29,29 @@ def JankenResult
     return result
 end
 
+
+def game_ended
+    janken_result = JankenResult()
+
+    if janken_result == 2
+        puts "あいこで…"
+        return false
+    end
+
+    if !IsAttiDecided()
+        puts "じゃんけん…"
+        return false
+    end
+
+    if janken_result == 1
+        puts "あなたの勝ち!"
+    else
+        puts "残念…CPUの勝ち!"
+    end
+
+    return true
+end
+
 #あっち向いてホイ 
 def IsAttiDecided
     puts "あっち向いて〜"
@@ -66,18 +67,20 @@ end
 
 def start_message(choices)
     numChoices = choices.size
-
+    
     for i in 0..(numChoices-1) do
         puts i.to_s + "(" + choices[i] + ")"
     end
 end
 
+
+
 def choice_info(player_choiceString, cpu_choiceString)
     puts "ホイ！"
     separator = "------------------------"
     puts separator
-    puts "あなた：#{player_choiceString}"
-    puts "相手：#{cpu_choiceString}"
+    puts "あなた:#{player_choiceString}"
+    puts "CPU:#{cpu_choiceString}"
     puts separator
 end
 
